@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="陳勝縯的個人網站，記錄數學學習、思考與探索。">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>陳勝縯｜數學・思考・探索</title>
+  <style>
+    :root{
+      --paper:#f5f3ed;--ink:#202820;--muted:#657066;--green:#315b45;
+      --lime:#d6e36a;--line:#d8d9ce;--white:#fffefa;--serif:Georgia,"Noto Serif TC",serif;
+      --sans:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #8b9d26;outline-offset:3px}
+    .wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    .topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{font-weight:800;letter-spacing:.08em;text-decoration:none}
+    .brand span{color:var(--green)}
+    nav{display:flex;gap:28px}
+    nav a{text-decoration:none;color:var(--muted);font-size:14px}
+    nav a:hover{color:var(--green)}
+    .hero{min-height:590px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px;padding:76px 0 86px}
+    .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:800}
+    h1{font-family:var(--serif);font-size:clamp(52px,8vw,92px);line-height:1.12;letter-spacing:.04em;margin:22px 0}
+    h1 span{display:block;font-family:var(--sans);font-size:clamp(20px,2.4vw,28px);font-weight:500;letter-spacing:.12em;color:var(--green);margin-top:18px}
+    .hero-copy{max-width:530px;color:var(--muted);font-size:18px}
+    .actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid var(--green);text-decoration:none;font-weight:700;font-size:14px;transition:background .2s,color .2s}
+    .btn.primary{background:var(--green);color:white}.btn:hover{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+    .hero-art{position:relative;min-height:390px;background:var(--green);overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.28);border-radius:50%;width:310px;height:310px}
+    .hero-art:after{width:220px;height:220px}
+    .math-mark{position:relative;color:var(--lime);font-family:var(--serif);font-size:clamp(100px,16vw,190px);line-height:1;z-index:1}
+    .art-note{position:absolute;bottom:22px;right:24px;color:#e8eddf;font-size:11px;letter-spacing:.18em}
+    .section{padding:86px 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:42px}
+    .section-kicker{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.2em}
+    h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:500;line-height:1.25;margin:8px 0}
+    .intro{max-width:670px;color:var(--muted);font-size:17px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+    .quote{font-family:var(--serif);font-size:clamp(25px,3vw,36px);line-height:1.55;color:var(--green);margin:0;padding-left:24px;border-left:3px solid var(--lime)}
+    .facts{border-top:1px solid var(--line)}
+    .fact{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:17px 0;border-bottom:1px solid var(--line)}
+    .fact dt{color:var(--muted);font-size:14px}.fact dd{margin:0;font-weight:600}
+    .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .area{padding:28px 28px 30px 0;border-right:1px solid var(--line)}
+    .area+ .area{padding-left:28px}.area:last-child{border:0}
+    .area-no{font-family:var(--serif);font-size:42px;color:#9aa17f}
+    .area h3{font-size:19px;margin:10px 0}.area p{color:var(--muted);font-size:15px;margin:0}
+    .journal{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .journal-item{background:var(--white);padding:26px;border:1px solid var(--line);min-height:170px}
+    .journal-item small{color:var(--green);font-weight:800;letter-spacing:.14em}
+    .journal-item h3{font-family:var(--serif);font-size:24px;font-weight:500;margin:12px 0 6px}
+    .journal-item p{color:var(--muted);font-size:14px;margin:0}
+    .contact{background:var(--green);color:#fff;padding:68px 0}
+    .contact .section-kicker{color:var(--lime)}
+    .contact h2{font-size:clamp(34px,5vw,58px);max-width:700px}
+    .contact p{color:#dce4da;max-width:620px}
+    .contact .btn{border-color:var(--lime);color:var(--lime);margin-top:16px}
+    footer{padding:22px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    .note{font-size:12px;color:var(--muted);margin-top:26px}
+    @media(max-width:760px){
+      .wrap{width:min(100% - 36px,600px)}
+      .topbar{height:auto;min-height:68px;align-items:flex-start;padding:20px 0;gap:16px;flex-direction:column}
+      nav{gap:18px;flex-wrap:wrap}
+      .hero{grid-template-columns:1fr;gap:32px;padding:60px 0}
+      .hero-art{min-height:270px}
+      .section{padding:62px 0}
+      .section-head{grid-template-columns:1fr;gap:12px;margin-bottom:28px}
+      .about-grid{grid-template-columns:1fr;gap:34px}
+      .areas{grid-template-columns:1fr}
+      .area,.area+.area{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}
+      .area:last-child{border-bottom:0}
+      .journal{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:6px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#home" aria-label="陳勝縯首頁">CHEN <span>SHENG-YAN</span></a>
+    <nav aria-label="主要導覽">
+      <a href="#about">關於我</a><a href="#interests">數學探索</a><a href="#journal">學習紀錄</a><a href="#contact">聯絡</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home" aria-labelledby="main-title">
+      <div>
+        <div class="eyebrow">Mathematics · Learning · Discovery</div>
+        <h1 id="main-title">陳勝縯<span>在數學中思考，在探索中成長。</span></h1>
+        <p class="hero-copy">這裡是我的個人學習與作品空間。我希望透過數學，練習觀察問題、整理思路，並將抽象的概念連結到真實世界。</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">認識我</a>
+          <a class="btn" href="#journal">探索學習紀錄</a>
+        </div>
+      </div>
+      <div class="hero-art" role="img" aria-label="以圓形幾何線條與數學符號構成的視覺圖像">
+        <div class="math-mark">∑</div>
+        <div class="art-note">THINK · PROVE · EXPLORE</div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-kicker">01 / ABOUT</div><h2>關於我</h2></div>
+          <p class="intro">我叫陳勝縯。公開的臺師大數學系學術與生涯導師名單中曾列有同名學生資料。本網站以個人學習作品集為方向，呈現數學學習、思考歷程與持續探索。</p>
+        </div>
+        <div class="about-grid">
+          <blockquote class="quote">「數學不只是求出答案，更是學會如何提出好問題。」</blockquote>
+          <dl class="facts">
+            <div class="fact"><dt>姓名</dt><dd>陳勝縯</dd></div>
+            <div class="fact"><dt>學習領域</dt><dd>數學與相關跨領域探索</dd></div>
+            <div class="fact"><dt>學校線索</dt><dd>國立臺灣師範大學數學系（公開導生名單可查）</dd></div>
+            <div class="fact"><dt>個人方向</dt><dd>持續累積數學知識、作品與學習歷程</dd></div>
+          </dl>
+        </div>
+        <p class="note">說明：以上學校關聯僅依公開導生名單作有限度呈現；年級、學籍現況、學歷、研究專長及個人經歷尚未取得可核實資料，因此不自行推定。</p>
+      </div>
+    </section>
+
+    <section class="section" id="interests">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-kicker">02 / INTERESTS</div><h2>數學探索</h2></div>
+          <p class="intro">數學的魅力在於不同概念之間的連結。以下是本網站規劃的內容主軸，可隨實際學習成果逐步擴充。</p>
+        </div>
+        <div class="areas">
+          <article class="area"><div class="area-no">01</div><h3>數學概念</h3><p>整理重要定義、定理與解題方法，練習從理解出發，而不只記住公式。</p></article>
+          <article class="area"><div class="area-no">02</div><h3>問題思考</h3><p>記錄問題如何形成、如何嘗試不同解法，以及推理過程中的發現。</p></article>
+          <article class="area"><div class="area-no">03</div><h3>跨域應用</h3><p>探索數學與科技、資料、自然現象及日常生活之間的關係。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journal">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-kicker">03 / JOURNAL</div><h2>學習紀錄</h2></div>
+          <p class="intro">把學習過程留下來，讓每一次練習、提問與修正，都成為下一步的起點。</p>
+        </div>
+        <div class="journal">
+          <article class="journal-item"><small>LEARNING NOTES</small><h3>數學筆記</h3><p>收錄概念整理、課堂筆記與重要觀念的重新詮釋。</p></article>
+          <article class="journal-item"><small>PROBLEM SOLVING</small><h3>解題思路</h3><p>呈現題目分析、策略選擇、推導過程與解法比較。</p></article>
+          <article class="journal-item"><small>PROJECTS</small><h3>專題與作品</h3><p>展示自主探究、數學建模、程式實作或跨領域成果。</p></article>
+          <article class="journal-item"><small>REFLECTION</small><h3>學習反思</h3><p>記錄學習上的收穫、困難，以及下一階段想深入的問題。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="section-kicker">04 / CONTACT</div>
+        <h2>讓想法持續交流，讓學習持續發生。</h2>
+        <p>歡迎透過合適的公開聯絡方式，交流數學學習、專題作品與想法。本頁目前未放入未經確認的電子郵件或社群帳號。</p>
+        <a class="btn" href="#home">回到首頁 ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="year"></span> 陳勝縯</span>
+    <span>個人學習與作品集｜持續更新</span>
+  </footer>
+  <script>
+    "use strict";
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>
